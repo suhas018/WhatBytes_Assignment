@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if messages %}
+            <div class="alert-container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+<h1>Profile</h1>
+<p><strong>Username:</strong> {{ user.username }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Date Joined:</strong> {{ user.date_joined }}</p>
+<p><strong>Last Updated:</strong> {{ user.last_login }}</p>
+<div class="links">
+    <a href="{% url 'dashboard' %}">Back to Dashboard</a> | 
+    <a href="{% url 'logout' %}">Logout</a>
+</div>
+{% endblock %}
